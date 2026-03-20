@@ -1,11 +1,141 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+	<main class="container">
+		<header class="hero">
+			<h1>Hi, I'm Arnav.</h1>
+			<p>A person who loves to learn.</p>
+		</header>
+
+		<section class="bento-grid">
+			<div class="bento-card card-projects">
+				<h2>Projects:</h2>
+				<p>Working on: <strong>CampusCrew</strong> and <strong>Clacklash</strong>. Always experimenting, always learning. I truly belive in "you wont learn shit until you eat shit."</p>
+			</div>
+
+			<div class="bento-card card-doing">
+				<h2>What I Might be doing:</h2>
+				<ul class="likes-list">
+					<li>Watching <em>Professional Wrestling.</em></li>
+					<li>Rewatching <em>Better Call Saul for the 7th Time</em></li>
+					<li>Cooking Chicken Alfredo.</li>
+				</ul>
+			</div>
+
+			<div class="bento-card col-span-2 card-songs">
+				<h2>Lowkey Goated Songs</h2>
+				<p class="subtext">Drop your Spotify iframe code right below this paragraph later!</p>
+				<div class="spotify-placeholder">
+					Music player goes here
+				</div>
+			</div>
+		</section>
+	</main>
 </Layout>
+
+<style>
+	.container {
+		max-width: 1000px;
+		margin: 0 auto;
+		/* Added more top padding to push it down slightly */
+		padding: 6rem 2rem;
+	}
+
+	.hero {
+		margin-bottom: 5rem;
+		/* Centers the big text perfectly */
+		text-align: center;
+	}
+
+	h1 {
+		/* Made it massive */
+		font-size: 5rem;
+		font-weight: 800;
+		letter-spacing: -0.05em;
+		margin-bottom: 0.5rem;
+	}
+
+	.hero p {
+		font-size: 1.4rem;
+		color: #515154;
+	}
+
+	h2 {
+		font-size: 1.5rem;
+		font-weight: 600;
+		margin-top: 0;
+		margin-bottom: 1rem;
+	}
+
+	/* Changed to 2 columns so the top cards are exactly 50/50 */
+	.bento-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.5rem;
+	}
+
+	.bento-card {
+		border-radius: 24px;
+		padding: 2.5rem;
+		box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+		transition: transform 0.3s ease;
+	}
+
+	.bento-card:hover {
+		transform: translateY(-4px);
+	}
+
+	/* --- THE CUSTOM COLORS --- */
+	.card-projects {
+		background-color: #ffffff; /* Crisp White */
+	}
+
+	.card-doing {
+		background-color: #e3e5e8; /* Soft Matte Silver/Slate */
+	}
+
+	.card-songs {
+		background-color: #ffffff; /* Crisp White */
+	}
+	/* ------------------------- */
+
+	/* Spans the bottom card across both columns */
+	.col-span-2 { grid-column: span 2; }
+
+	.likes-list {
+		list-style: none;
+		padding: 0;
+		line-height: 2;
+	}
+
+	.subtext {
+		color: #86868b;
+		font-size: 0.9rem;
+	}
+
+	.spotify-placeholder {
+		height: 152px;
+		background: #f0f0f2;
+		border-radius: 12px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: #a1a1a6;
+		margin-top: 1rem;
+	}
+
+	/* Mobile responsiveness */
+	@media (max-width: 768px) {
+		.bento-grid {
+			grid-template-columns: 1fr;
+		}
+		.col-span-2 {
+			grid-column: span 1;
+		}
+		h1 {
+			font-size: 3.5rem;
+		}
+	}
+</style>
