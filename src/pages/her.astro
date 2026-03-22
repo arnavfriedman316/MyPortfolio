@@ -1,0 +1,86 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+	<main class="secret-container">
+		<div class="note-card">
+			<h1 class="title">Thank You.</h1>
+			<p class="message">
+				For being the inspiration behind the scenes. For the late night conversations, the quiet moments, and everything in between. 
+			</p>
+			<p class="message signature">
+				— Arnav
+			</p>
+			
+			<a href="/" class="back-btn">Return</a>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap');
+
+	:global(body) {
+		background-color: #161618 !important; /* Forces a moody, dark cinematic background */
+		font-family: 'Plus Jakarta Sans', sans-serif !important;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 100vh;
+		margin: 0;
+	}
+
+	.secret-container {
+		max-width: 600px;
+		width: 100%;
+		padding: 2rem;
+		animation: slowFadeIn 1.5s ease forwards;
+	}
+
+	.note-card {
+		text-align: center;
+	}
+
+	.title {
+		font-family: 'Playfair Display', serif;
+		color: #ffffff;
+		font-size: 3.5rem;
+		margin-bottom: 2rem;
+		letter-spacing: -0.02em;
+	}
+
+	.message {
+		color: #a1a1a6;
+		font-size: 1.25rem;
+		line-height: 1.8;
+		margin-bottom: 1.5rem;
+	}
+
+	.signature {
+		font-style: italic;
+		color: #d1d1d6;
+		margin-top: 3rem;
+		margin-bottom: 4rem;
+	}
+
+	.back-btn {
+		display: inline-block;
+		color: #515154;
+		text-decoration: none;
+		font-size: 0.9rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		transition: color 0.3s ease;
+	}
+
+	.back-btn:hover {
+		color: #ffffff;
+	}
+
+	@keyframes slowFadeIn {
+		from { opacity: 0; transform: translateY(10px); }
+		to { opacity: 1; transform: translateY(0); }
+	}
+</style>
