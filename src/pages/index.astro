@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import data from '../content/data.json';
-import SpeedInsights from "@vercel/speed-insights/astro"
 ---
 
 <Layout>
@@ -19,6 +18,7 @@ import SpeedInsights from "@vercel/speed-insights/astro"
 
 			<nav class="nav-pill">
 				<button class="tab-btn active" data-target="tab-home">Home</button>
+				<button class="tab-btn" data-target="tab-projects">Projects</button>
 				<button class="tab-btn" data-target="tab-cinema">Cinema</button>
 				<button class="tab-btn" data-target="tab-wrestling">Wrestling</button>
 			</nav>
@@ -27,7 +27,6 @@ import SpeedInsights from "@vercel/speed-insights/astro"
 		</header>
 
 		<div id="tab-home" class="tab-content active">
-			
 			<header class="hero">
 				<h1>Hi, I'm <span id="dynamic-name" class="animated-name">{data.hero.name}</span>.</h1>
 				<p>{data.hero.tagline}</p>
@@ -38,13 +37,13 @@ import SpeedInsights from "@vercel/speed-insights/astro"
 				<div class="bento-card card-projects">
 					<h2>Projects:</h2>
 					<p>Working on: 
-						{data.projects.links.map((link, index) => (
+						{data.homeProjects.links.map((link, index) => (
 							<>
 								<a href={link.url} target="_blank" rel="noopener noreferrer" class="project-link">{link.name}</a>
-								{index < data.projects.links.length - 1 ? " and " : ". "}
+								{index < data.homeProjects.links.length - 1 ? " and " : ". "}
 							</>
 						))}
-						{data.projects.description}
+						{data.homeProjects.description}
 					</p>
 				</div>
 
@@ -66,6 +65,24 @@ import SpeedInsights from "@vercel/speed-insights/astro"
 						))}
 					</div>
 				</div>
+			</section>
+		</div>
+
+		<div id="tab-projects" class="tab-content">
+			<header class="hero tab-header">
+				<h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 4rem;">Builds & Content.</h1>
+				<p>Code I write and tech I talk about.</p>
+			</header>
+
+			<section class="bento-grid">
+				{data.projectsTab.map((project) => (
+					<div class={`bento-card ${project.type === 'content' ? 'card-insta' : 'card-code'}`}>
+						<h2>
+							<a href={project.url} target="_blank" rel="noopener noreferrer" class="project-link">{project.title}</a>
+						</h2>
+						<p class={project.type === 'content' ? 'subtext-insta' : 'subtext-code'}>{project.description}</p>
+					</div>
+				))}
 			</section>
 		</div>
 
@@ -107,9 +124,11 @@ import SpeedInsights from "@vercel/speed-insights/astro"
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800&family=Playfair+Display:ital,wght@0,600;1,600&family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Rye&family=Space+Grotesk:wght@700&family=UnifrakturMaguntia&display=swap');
 
+	/* THE GLOBAL BACKGROUND SHIFT */
 	:global(body) {
-		background-color: #E2E2E7 !important;
+		background-color: #F2E3DB !important; /* The default Pastel Home Color */
 		font-family: 'Plus Jakarta Sans', sans-serif !important;
+		transition: background-color 0.5s cubic-bezier(0.22, 1, 0.36, 1) !important;
 	}
 
 	.container { max-width: 1000px; margin: 0 auto; padding: 2rem 2rem 8rem; font-family: 'Plus Jakarta Sans', sans-serif; }
@@ -140,11 +159,20 @@ import SpeedInsights from "@vercel/speed-insights/astro"
     .icon-instagram:hover { color: #E1306C; }
 
 	/* TYPOGRAPHY */
-	.hero { margin-bottom: 5rem; text-align: center; }
+	.hero { margin-bottom: 5rem; text-align: center; transition: color 0.3s ease; }
 	.tab-header { margin-bottom: 3rem; }
 	h1 { font-size: 5rem; font-weight: 800; letter-spacing: -0.05em; margin-bottom: 0.5rem; }
-	.hero p { font-size: 1.4rem; color: #515154; }
+	.hero p { font-size: 1.4rem; color: #515154; transition: color 0.3s ease; }
 	h2 { font-size: 1.5rem; font-weight: 700; margin-top: 0; margin-bottom: 1rem; }
+
+	/* --- TEXT COLORS FOR DARK BACKGROUND TABS --- */
+	#tab-projects .hero h1, 
+	#tab-cinema .hero h1, 
+	#tab-wrestling .hero h1 { color: #ffffff; }
+
+	#tab-projects .hero p, 
+	#tab-cinema .hero p, 
+	#tab-wrestling .hero p { color: #a1a1a6; }
 
 	/* --- NAME ANIMATION --- */
 	.animated-name { display: inline-block; position: relative; transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s ease-in-out, filter 0.2s ease-in-out, transform 0.2s ease-in-out; cursor: default; padding-bottom: 4px; font-weight: 800 !important; }
@@ -157,6 +185,17 @@ import SpeedInsights from "@vercel/speed-insights/astro"
 	.bento-card { border-radius: 24px; padding: 2.5rem; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04); transition: transform 0.3s ease; }
 	.bento-card:hover { transform: translateY(-4px); }
 
+	/* --- PROJECT TAB STYLING --- */
+	.card-code { background-color: #161618; color: #ffffff; display: flex; flex-direction: column; justify-content: center; }
+	.card-code h2 { font-size: 2.2rem; margin-bottom: 1rem; }
+	.subtext-code { font-size: 1.2rem; line-height: 1.6; color: #d1d1d6; }
+
+	.card-insta { background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; display: flex; flex-direction: column; justify-content: center; border: none; }
+	.card-insta h2 { font-size: 2.2rem; margin-bottom: 1rem; text-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+	.card-insta .project-link { color: white; }
+	.card-insta .project-link::after { background-color: white; }
+	.subtext-insta { font-size: 1.2rem; line-height: 1.6; color: #f8f8fb; font-weight: 500; text-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+
 	/* HOME CARDS */
 	.card-projects { background-color: #161618; color: #ffffff; display: flex; flex-direction: column; justify-content: center; }
 	.card-projects h2 { font-size: 2.2rem; margin-bottom: 1.5rem; }
@@ -164,7 +203,7 @@ import SpeedInsights from "@vercel/speed-insights/astro"
 	.card-projects strong { color: #ffffff; }
 
 	.project-link { color: #ffffff; font-weight: 800; text-decoration: none; position: relative; padding-bottom: 2px; }
-	.project-link::after { content: ''; position: absolute; width: 100%; height: 2px; bottom: 0; left: 0; background-color: #ffffff; transform: scaleX(0.3); transform-origin: center; transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1); }
+	.project-link::after { content: ''; position: absolute; width: 100%; height: 2px; bottom: 0; left: 0; background-color: currentColor; transform: scaleX(0.3); transform-origin: center; transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1); }
 	.project-link:hover::after { transform: scaleX(1); }
 
 	.card-doing { background: linear-gradient(145deg, #f8f8fb, #ebebf2); border: 1px solid #ffffff; }
@@ -175,16 +214,8 @@ import SpeedInsights from "@vercel/speed-insights/astro"
 	.likes-list li::before { content: "•"; position: absolute; left: 0; color: #161618; font-weight: 800; font-size: 1.2rem; }
 
 	/* --- EASTER EGG CSS --- */
-	:global(.secret-link) {
-		color: inherit;
-		text-decoration: none;
-		transition: all 0.3s ease;
-	}
-	:global(.secret-link:hover) {
-		color: #D96C4A;
-		text-decoration: underline;
-		text-underline-offset: 4px;
-	}
+	:global(.secret-link) { color: inherit; text-decoration: none; transition: all 0.3s ease; }
+	:global(.secret-link:hover) { color: #D96C4A; text-decoration: underline; text-underline-offset: 4px; }
 
 	.card-songs { background: linear-gradient(145deg, #f4f3ef, #e9e6df); border: 1px solid #ffffff; }
 	.card-songs h2 { font-family: 'Space Grotesk', sans-serif; font-size: 2.2rem; color: #1c1c1e; letter-spacing: -0.04em; margin-bottom: 0.2rem; }
@@ -256,6 +287,14 @@ import SpeedInsights from "@vercel/speed-insights/astro"
 		});
 	}
 
+	// The Color Dictionary mapped to the tabs!
+	const bgColors = {
+		'tab-home': '#F2E3DB',     // Pastel Warm Sand
+		'tab-projects': '#1B2028', // Dark Tech Slate
+		'tab-cinema': '#262630',   // Cinematic Dark Plum
+		'tab-wrestling': '#0F0F0F' // Gritty Near-Black
+	};
+
 	const tabBtns = document.querySelectorAll('.tab-btn');
 	const tabContents = document.querySelectorAll('.tab-content');
 
@@ -268,6 +307,9 @@ import SpeedInsights from "@vercel/speed-insights/astro"
 
 			btn.classList.add('active');
 			document.getElementById(targetId).classList.add('active');
+
+			// This is the magic line that shifts the global background color
+			document.body.style.setProperty('background-color', bgColors[targetId], 'important');
 		});
 	});
 </script>

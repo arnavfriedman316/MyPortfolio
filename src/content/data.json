@@ -29,20 +29,20 @@
       "svgPath": "M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"
     }
   ],
-  "projects": {
+  "homeProjects": {
     "description": "Always experimenting, always learning. I truly belive in \"you wont learn shit until you eat shit.\"",
     "links": [
       {
         "name": "CampusCrew",
-        "url": "https://github.com/yourusername/CampusCrew"
+        "url": "https://github.com/arnavfriedman316/CampusCrew"
       },
       {
         "name": "Clacklash",
-        "url": "https://github.com/yourusername/Clacklash"
+        "url": "https://github.com/arnavfriedman316/Clacklash"
       }
     ]
   },
-    "activities": [
+  "activities": [
     "Talking to <a href=\"/her\" target=\"_blank\" class=\"secret-link\">her</a>.",
     "Watching Professional Wrestling.",
     "Rewatching Better Call Saul for the 7th Time",
@@ -68,7 +68,7 @@
     },
     {
       "title": "Grave of the Fireflies",
-      "description": "Devastatingly beautiful. Animation as high art.",
+      "description": "I do not have the courage to watch this movie ever again. This is the worst greatest movie to ever exist. I would never want anybody to experience it but yet I want everybody to experience this masterpiece. I legitimately cried for the better part of an hour, I cried like a baby, even worse. This movie broke me.",
       "image": "/fireflies.jpg",
       "bgPosition": "center",
       "titleFont": "'Playfair Display', serif",
@@ -77,7 +77,7 @@
     },
     {
       "title": "Better Call Saul",
-      "description": "The greatest character study on television. Slippin' Jimmy with a law degree.",
+      "description": "The Greatest Television Show in the history, FAR exceeding its already Legendary predecessor. The story follows James Morgan McGill-better known by the name Saul Goodman- how, a lowley PD lawyer became a juggernaught that was Saul Goodman. It also follows the story of Mike Ehrmantraught, probably the greatest character of the show.",
       "image": "/bettercallsaul.jpg",
       "bgPosition": "center 30%",
       "titleFont": "'Space Grotesk', sans-serif",
@@ -94,6 +94,26 @@
       "titleFont": "'Old English MT', 'Old English Text MT', 'UnifrakturMaguntia', serif",
       "titleColor": "#ffffff",
       "titleSize": "5.5rem"
+    }
+  ],
+  "projectsTab": [
+    {
+      "title": "CampusCrew",
+      "description": "Building a comprehensive platform for students to rate and review campus spots.",
+      "url": "https://github.com/arnavfriedman316/CampusCrew",
+      "type": "code"
+    },
+    {
+      "title": "Clacklash",
+      "description": "Always experimenting, always learning. You don't learn until you build.",
+      "url": "https://github.com/arnavfriedman316/Clacklash",
+      "type": "code"
+    },
+    {
+      "title": "Tech & Hardware",
+      "description": "My dedicated Instagram page breaking down the latest in tech, deep diving into hardware, and reviewing setups.",
+      "url": "https://instagram.com/arnavknowsnothing",
+      "type": "content"
     }
   ]
 }
