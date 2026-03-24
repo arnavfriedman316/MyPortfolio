@@ -105,7 +105,7 @@
     },
     {
       "title": "Clacklash",
-      "description": "Always experimenting, always learning. You don't learn until you build.",
+      "description": "Spotify Wrapped for your keyboard. A privacy-first desktop app with an invisible Python daemon that tracks keystrokes locally — no raw text, no spyware — paired with a retro MS-DOS dashboard that feeds your stats to an AI that brutally roasts your habits.",
       "url": "https://github.com/arnavfriedman316/Clacklash",
       "type": "code"
     },
